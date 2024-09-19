@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -10,14 +10,14 @@ import { environment } from './../../environments/environment';
 })
 export class ProductService {
 
-  private apiUrl = environment.api_base_url;
-  private httpOptions = {
+  apiUrl = environment.api_base_url;
+  httpOptions = {
     headers: new HttpHeaders({
       'x-apikey': environment.api_key
     })
   };
 
-  constructor(private http: HttpClient) {}
+  http = inject(HttpClient);
 
   // Get all products
   getAllProducts(): Observable<Product[]> {

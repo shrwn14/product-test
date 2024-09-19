@@ -1,6 +1,7 @@
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Component, CUSTOM_ELEMENTS_SCHEMA, Input } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
+import { Product } from './../../models/product';
 
 @Component({
   selector: 'app-product-card',
@@ -11,5 +12,5 @@ import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/stan
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ProductCardComponent  {
-  @Input() product: any;
+  @Input() product = {}  as Product;
 }
