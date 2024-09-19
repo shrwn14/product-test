@@ -1,0 +1,14 @@
+
+<ion-item>
+  <ion-label>
+    <h2>{{ product?.name }}</h2>
+    <p>{{ product?.description }}</p>
+  </ion-label>
+  <div slot="end" style="text-align: right;">
+    <p>{{ product?.price | currency }}</p>
+    @if(product?.discount) {
+      <p class="ion-text-danger" >{{ product?.discount }}% off</p>
+    }
+  </div>
+  <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+</ion-item>

@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="goToHome()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ product?.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!--demo only, maybe an animated font is ideal-->
+  <label *ngIf="loading" class="text-center mt-5 w-100">Loading...</label>
+  <ion-card *ngIf="!loading">
+    <ion-card-header>
+      <ion-card-title>{{ product?.description }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Price: {{ product?.price | currency }}</p>
+      <p *ngIf="product?.discount">Discount: {{ product?.discount }}%</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

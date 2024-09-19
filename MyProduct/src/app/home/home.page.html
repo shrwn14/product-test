@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Product List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="loading">
+  <!--demo only, maybe an animated font is ideal-->
+  <label *ngIf="loading" class="text-center mt-5 w-100">Loading...</label>
+</ion-content>
+
+<ion-content *ngIf="!loading">
+  <ion-searchbar placeholder="Search" (ionInput)="searchProducts($event.target.value)"></ion-searchbar>
+  @for(product of filteredProducts; track $index) {
+    <app-product-card
+      [product]="product"
+      (click)="goToProductDetails(product._id)">
+    </app-product-card>
+  }
+  @empty {
+    <div class="text-center mt-5">No records found!</div>
+  }
+</ion-content>
